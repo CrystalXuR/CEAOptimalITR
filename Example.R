@@ -3,7 +3,9 @@
 #----------- Outcome: treatment A                                --------------------#######
 #----------- Predictor: covariate Xs                             --------------------#######
 #------------------------------------------------------------------------------------#######
-library(CEAOptimalITR); library(survival);library(rpart)
+library(R.utils);library(survival);library(rpart) #library(CEAOptimalITR)
+sourceDirectory(".../CEAOptimalITR/R")
+
 #------------------- Simulate covariates, treatment, and 2 outcomes -----------------#
 N=100
 tau=3         # restriction time point = 3 year
@@ -38,9 +40,6 @@ Y = lambda*FT-CC;summary(Y)
 
 
 ##-------------------- Analysis -------------------------##
-#library(R.utils);library(survival);library(rpart)
-#sourceDirectory("C:/Users/u0918455/Box/A_Crystal's Thesis/1 - Optimization-Classification/2 - Simulations & implementation/Simulation Codes and Results/1-CEanalysisITRcode/CE_ITR_SourceCode")
-
 dat = data.frame(x1,x2,x3,A,FT,event,cen,CC,Y)
 muT.reg.exp = Reg.mu.exp(ST=FT, A=A, Xs=as.matrix(data.frame(x1,x3)), Ms=x2, data=dat)
 muTpre = muT.reg.exp
