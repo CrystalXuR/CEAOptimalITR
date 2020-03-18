@@ -3,7 +3,7 @@
 #----------- Outcome: treatment A                                --------------------#######
 #----------- Predictor: covariate Xs                             --------------------#######
 #------------------------------------------------------------------------------------#######
-library(R.utils);library(survival);library(rpart) #library(CEAOptimalITR)
+library(R.utils);library(survival);library(rpart)
 sourceDirectory(".../CEAOptimalITR/R")
 
 #------------------- Simulate covariates, treatment, and 2 outcomes -----------------#
@@ -41,13 +41,7 @@ Y = lambda*FT-CC;summary(Y)
 
 ##-------------------- Analysis -------------------------##
 dat = data.frame(x1,x2,x3,A,FT,event,cen,CC,Y)
-muT.reg.exp = Reg.mu.exp(ST=FT, A=A, Xs=as.matrix(data.frame(x1,x3)), Ms=x2, data=dat)
-muTpre = muT.reg.exp
-muT = matrix(NA,N,2)
-for (j in 1:2){
-  muT[,j] = pmin(rep(tau,N),muTpre[,j])
-}
-
+muT = Reg.mu.exp(ST=FT, A=A, Xs=as.matrix(data.frame(x1,x3)), Ms=x2, data=dat)
 muC = Reg.mu.norm(CC=CC, A=A, Xs=as.matrix(data.frame(x1,x3)), Ms=x2, data=dat)
 
 # estimated CE outcome
