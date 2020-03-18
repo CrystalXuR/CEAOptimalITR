@@ -31,9 +31,7 @@ Reg.mu.exp = function(ST,A,Xs,Ms,event,data){
       # integrate from 0 to tau
       mus.survRT[i,1] = cubintegrate(S_t0,0,tau,method = "cuhre",relTol=1e-03,absTol=1e-9)$integral
       mus.survRT[i,2] = cubintegrate(S_t1,0,tau,method = "cuhre",relTol=1e-03,absTol=1e-9)$integral
-    }
-    
-    outsurvRT = list(mus.survRT, fitsurvT);names(outsurvRT) = c("mus.survRT","SurvModel");outsurvRT
+    };mus.survRT
 }
 
 
