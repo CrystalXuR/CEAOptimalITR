@@ -1,0 +1,10 @@
+Package/R functions: OptimalCEITR
+Title: Estimating the Optimal Individualized Treatment Rule from A Cost-Effectiveness Perspective
+Date: 2020-07-09
+Depends: R (>= 3.5.3), survival, rpart, dplyr, cubature
+Author: Yizhe Xu and Jincheng Shen.
+Description: This set of functions is created to estimate the optimal individualized treatment rule (ITR) by taking into account the trade-off between health benefits and added costs of an intervention.  A statistical learning method is used to provide nonparametric estimations of the most cost-effective treatment decision, which is also tailored to individual heterogeneity. 
+Usage: There are two R files available in the zipped folder. The file “.OptimalCEITR.R” contains all the R functions that we created for this paper and the file “.Example.R” provides a simplified example for illustrating the use of our R functions to estimate the most cost-effective individualized treatment rule. Please execute the R functions before running the example code, and the libraries listed in Depends also need to be loaded first.
+Maintainer: Yizhe Xu<yizhe.xu@hsc.utah.edu>
+URL: https://github.com/CrystalXuR/CEAOptimalITR
+NeedsCompilation: yes
